@@ -1,1 +1,5 @@
+echo "[]" > data/feed.json
+git add data/feed.json
+git commit -m "Init data folder"
+git push
 
