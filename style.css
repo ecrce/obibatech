@@ -15,33 +15,6 @@ body {
   min-height: 100vh;
 }
 
-.news-ticker {
-  width: 100%;
-  background: #1a0033;
-  color: #b266ff;
-  overflow: hidden;
-  white-space: nowrap;
-  box-shadow: 0 0 10px rgba(178, 102, 255, 0.3);
-  font-size: 0.9rem;
-  padding: 0.5rem 0;
-  font-family: monospace;
-}
-
-.ticker-text {
-  display: inline-block;
-  padding-left: 100%;
-  animation: scroll-left 15s linear infinite;
-}
-
-@keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
 header {
   background: transparent;
   color: white;
@@ -55,23 +28,16 @@ main {
 }
 
 section {
-  background-color: rgba(178, 102, 255, 0.8);
+  background-color: rgba(178, 102, 255, 0.2);
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1rem auto;
   max-width: 600px;
   box-shadow: 0 0 10px rgba(178, 102, 255, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(178, 102, 255, 0.7);
 }
 
 .profile {
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .profile-img {
@@ -80,17 +46,25 @@ section:hover {
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
   border: 2px solid #b266ff;
 }
 
+pre#feed-output {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-left: 4px solid #b266ff;
+  padding: 1rem;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
 a {
   color: #b266ff;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #ffffff;
   text-decoration: underline;
 }
