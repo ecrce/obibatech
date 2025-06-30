@@ -2,12 +2,21 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-  background: #000000;
+  background: black;
   color: #ffffff;
+  background-image: url('background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  min-height: 100vh;
 }
 
 header {
-  background: #4b0082;
+  background: transparent;
   color: white;
   padding: 2rem;
   text-align: center;
@@ -15,7 +24,7 @@ header {
 
 main {
   padding: 2rem;
-  background: #1c1c1c;
+  background: transparent;
 }
 
 .profile {
@@ -28,6 +37,7 @@ main {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
+  border: 2px solid #b266ff;
 }
 
 a {
