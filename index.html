@@ -8,22 +8,46 @@
 </head>
 <body>
   <div class="bg-overlay">
+    <div class="news-ticker">
+      <div class="ticker-text" id="ticker">
+        Loading cyber threat intel…
+      </div>
+    </div>
+
     <header>
       <h1>Obiba Tech</h1>
       <p>Technology Consulting by Olivia Donayre</p>
     </header>
+
     <main>
-      <section class="profile">
+      <div class="profile">
         <img src="profile.png" alt="Olivia Donayre" class="profile-img" />
+      </div>
+
+      <section>
         <h2>About</h2>
         <p>Obiba Tech delivers innovative digital solutions tailored by Olivia Donayre, specializing in [your field or services].</p>
       </section>
+
       <section>
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:olivia.donayre001@gmail.com">olivia.donayre001@gmail.com</a></p>
+        <p>Email: <a href="mailto:obibatech@proton.me">obibatech@proton.me</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/olivia-d-b392671b5/" target="_blank">Olivia Donayre</a></p>
       </section>
     </main>
   </div>
+
+  <script>
+    fetch('https://otx.alienvault.com/api/v1/pulses/subscribed')
+      .then(response => response.json())
+      .then(data => {
+        const headlines = data.results.slice(0, 5).map(p => p.name).join(" • ");
+        document.getElementById("ticker").innerText = headlines;
+      })
+      .catch(error => {
+        console.error('Failed to load feed:', error);
+        document.getElementById("ticker").innerText = "Failed to load threat intel feed.";
+      });
+  </script>
 </body>
 </html>
