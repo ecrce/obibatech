@@ -1,0 +1,35 @@
+name: Update OTX Threat Feed
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Fetch threat feed
+        run: |
+          python fetch_feed.py
+        env:
+          OTX_API_KEY: ${{ secrets.OTX_API_KEY }}
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add threat_feed.json
+          git commit -m "Update threat feed"
+          git push
