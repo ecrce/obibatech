@@ -2,7 +2,7 @@ name: Update OTX Feed
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Every 6 hours
+    - cron: '0 */6 * * *'  # every 6 hours
   workflow_dispatch:
 
 jobs:
@@ -23,12 +23,14 @@ jobs:
       - name: Fetch OTX Feed
         env:
           OTX_API_KEY: ${{ secrets.OTX_API_KEY }}
-        run: python .github/scripts/fetch_otx_feed.py
+        run: |
+          mkdir -p data
+          python .github/scripts/fetch_otx_feed.py
 
-      - name: Commit feed data
+      - name: Commit feed data if changed
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data/feed.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update OTX threat feed"
+          git diff --cached --quiet || git commit -m "Update OTX threat feed"
           git push
