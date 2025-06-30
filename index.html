@@ -29,6 +29,17 @@
       </section>
     </main>
   </div>
-  <script src="otx.js"></script>
+  <script>
+  fetch('data/feed.json')
+    .then(response => response.json())
+    .then(data => {
+      const headlines = data.join(" • ");
+      document.getElementById("ticker").innerText = headlines;
+    })
+    .catch(error => {
+      console.error('Failed to load local feed:', error);
+      document.getElementById("ticker").innerText = "Threat feed unavailable.";
+    });
+</script>
 </body>
 </html>
