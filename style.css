@@ -4,7 +4,7 @@ body {
   padding: 0;
   background: black;
   color: #ffffff;
-  background-image: url('background_cleaned.png');
+  background-image: url('background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
