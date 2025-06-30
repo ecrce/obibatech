@@ -4,7 +4,7 @@ body {
   padding: 0;
   background: black;
   color: #ffffff;
-  background-image: url('background.png');
+  background-image: url('background_cleaned.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -27,6 +27,15 @@ main {
   background: transparent;
 }
 
+section {
+  background-color: rgba(178, 102, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(178, 102, 255, 0.4);
+}
+
 .profile {
   text-align: center;
 }
@@ -36,7 +45,8 @@ main {
   height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
+  display: block;
   border: 2px solid #b266ff;
 }
 
